@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+		<!-- 의존관계 설정하기 -->
+	<bean id="communityController"
+		  class="com.ktds.community.web.CommunityController">
+		<property name="communityService" ref="communityService" />	  
+	</bean>
+
+	<bean id="memberController"
+		  class="com.ktds.member.web.MemberController">
+		  <property name="memberService" ref="memberService" />
+		  <property name="communityService" ref="communityService" />
+	</bean>
+
+	<bean id="myPageController"
+		  class="com.ktds.member.web.MypageController">
+		  <property name="memberService" ref="memberService" />
+		  <property name="communityService" ref="communityService" />
+	</bean>
+
+	
+
+</beans>
