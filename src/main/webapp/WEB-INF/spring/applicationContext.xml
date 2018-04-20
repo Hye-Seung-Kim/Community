@@ -5,30 +5,35 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
+
 	<mvc:annotation-driven />
 	
-	<!-- 
-		정적자원 설정
-		mapping : 정적자원을 가져올 고유 URL
-		location : 정적자원이 있는 Base home
-		/WEB-INF/static/js/jquery-3.3.1.min.js
-		==> http://localhost:8080/ContextPath/static/js/jquery-3.3.1.min.js 
-	-->
 	<mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
-	<!-- resources,interceptors,validator .. controller와 관련되어있음 => url과 관련 -->
 	
 	<mvc:interceptors>
+	
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/static/**" />
+			<bean id="passInterceptor" class="com.hstravel.interceptors.PassInterceptor">
+				<property name="actionHistoryService" ref="actionHistoryService" />
+			</bean>
+		</mvc:interceptor>
+	
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
-			<bean id="ipBlockInterceptor" class="com.ktds.interceptors.IpBlockInterceptor" />
+			<bean id="ipBlockInterceptor" class="com.hstravel.interceptors.IpBlockInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<mvc:exclude-mapping path="/login"/>
 			<mvc:exclude-mapping path="/regist"/>
 			<mvc:exclude-mapping path="/static/**"/>
+			<mvc:exclude-mapping path="/api/exists/email"/>
+			<mvc:exclude-mapping path="/api/exists/nickname"/>
+			<mvc:exclude-mapping path="/"/>
 			<bean id="sessionInterceptor"
-				  class="com.ktds.interceptors.SessionInterceptor" />
+				  class="com.hstravel.interceptors.SessionInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 	

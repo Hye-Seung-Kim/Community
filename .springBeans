@@ -12,6 +12,8 @@
 		<config>src/main/webapp/WEB-INF/spring/controllerContext.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/rootContext.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContext.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/ReplyContext.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/actionHistoryContext.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

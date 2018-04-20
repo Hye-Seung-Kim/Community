@@ -5,22 +5,30 @@
 
 		<!-- 의존관계 설정하기 -->
 	<bean id="communityController"
-		  class="com.ktds.community.web.CommunityController">
+		  class="com.hstravel.community.web.CommunityController">
 		<property name="communityService" ref="communityService" />	  
 	</bean>
 
 	<bean id="memberController"
-		  class="com.ktds.member.web.MemberController">
+		  class="com.hstravel.member.web.MemberController">
 		  <property name="memberService" ref="memberService" />
 		  <property name="communityService" ref="communityService" />
 	</bean>
 
 	<bean id="myPageController"
-		  class="com.ktds.member.web.MypageController">
+		  class="com.hstravel.member.web.MypageController">
 		  <property name="memberService" ref="memberService" />
 		  <property name="communityService" ref="communityService" />
 	</bean>
 
-	
+	<bean id="replyController"
+		  class="com.hstravel.reply.web.ReplyController">
+		 <property name="replyService" ref="replyService" />  
+	</bean>
+
+	<bean id="actionHistoryController"
+		  class="com.hstravel.actionhistory.web.ActionHistoryController">
+		 <property name="actionHistoryService" ref="actionHistoryService" />  
+	</bean>
 
 </beans>

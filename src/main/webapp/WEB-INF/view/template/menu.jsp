@@ -37,7 +37,7 @@
 		
 		
 		<li>
-			<a href="<c:url value="/"/>">Community</a>
+			<a href="<c:url value="/list"/>">Community</a>
 		</li>
 		<li>
 			

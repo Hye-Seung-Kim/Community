@@ -5,13 +5,13 @@
 
 	
 	<bean	id="communityDaoOracle"
-			class="com.ktds.community.dao.CommunityDaoImplForOracle">
+			class="com.hstravel.community.dao.CommunityDaoImplForOracle">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
 	</bean>
 	
 		  
 	<bean id="communityService"
-		  class="com.ktds.community.service.CommunityServiceImpl">
+		  class="com.hstravel.community.service.CommunityServiceImpl">
 		  <!-- ref는 다른 빈의 아이디. name과 ref가 같은게 아님 -->
 		  <property name="communityDao" ref="communityDaoOracle" />
 	</bean>

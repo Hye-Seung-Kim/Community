@@ -5,13 +5,19 @@
  <configuration>
  
  	<typeAliases>
- 		<typeAlias type="com.ktds.community.vo.CommunityVO" alias="CommunityVO"/>
+ 		<typeAlias type="com.hstravel.community.vo.CommunityVO" alias="CommunityVO"/>
  		<!-- alias=""=> 클래스명 적기 -->
- 		<typeAlias type="com.ktds.member.vo.MemberVO" alias="MemberVO" />
+ 		<typeAlias type="com.hstravel.community.vo.CommunitySearchVO" alias="CommunitySearchVO" />
+ 		<typeAlias type="com.hstravel.member.vo.MemberVO" alias="MemberVO" />
+ 		<typeAlias type="com.hstravel.reply.vo.ReplyVO" alias="ReplyVO" />
+ 		<typeAlias type="com.hstravel.actionhistory.vo.ActionHistoryVO" alias="ActionHistoryVO" />
+ 		<typeAlias type="com.hstravel.actionhistory.vo.ActionHistorySearchVO" alias="ActionHistorySearchVO" />
  	</typeAliases>
  
  	<mappers>
- 		<mapper resource="/com/ktds/community/dao/sql/communityDao.xml" />
- 		<mapper resource="/com/ktds/member/dao/sql/memberDao.xml" />
+ 		<mapper resource="/com/hstravel/community/dao/sql/communityDao.xml" />
+ 		<mapper resource="/com/hstravel/member/dao/sql/memberDao.xml" />
+ 		<mapper resource="/com/hstravel/reply/dao/sql/replyDao.xml" />
+ 		<mapper resource="/com/hstravel/actionhistory/dao/sql/actionHistoryDao.xml" />
  	</mappers>
  </configuration>
