@@ -14,10 +14,7 @@
 		$("#toggle").change(function(){
 			var checked = $(this).prop("checked");
 			var checkbox = $("input[type=checkbox][name=delete]");
-			// 일괄 변경
-			// checkbox.prop("checked", checked);
-		
-			// 선택 반전
+			
 			checkbox.each(function(index, checkbox){
 				var checked = $(checkbox).prop("checked");
 				$(checkbox).prop("checked", !checked);

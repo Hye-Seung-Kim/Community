@@ -1,16 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="<c:url value="/static/js/jquery-3.3.1.min.js"/>"></script> 
 
-<title>Trendy Travel</title>
-<!-- static이후부터가 폴더명임. static/~ 여기 이후 -->
-<script src="<c:url value="/static/js/jquery-3.3.1.min.js"/>" 
-		type="text/javascript"></script>
+<title>Insert title here</title>
+<style>
+ul{
+   list-style:none;
+   padding-left:0px;
+
+   }
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/css/form.css">
+
 <script type="text/javascript">
 	$().ready(function(){
 	
@@ -58,155 +66,146 @@
 		});
 	});
 </script>
+
+
+
+<script>
+
+//Test for placeholder support
+$.support.placeholder = (function(){
+    var i = document.createElement('input');
+    return 'placeholder' in i;
+})();
+
+//Hide labels by default if placeholders are supported
+if($.support.placeholder) {
+    $('.form li').each(function(){
+        $(this).addClass('js-hide-label');
+    });  
+ 
+    // Code for adding/removing classes here
+};
+
+</script>
+ 
 </head>
 <body>
-<div>
+<!-- Form Markup Will Go Here -->
+ 
+    <!-- Google's hosted version of jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     
+    <!-- Link to the javascript file we will create --> 
 
-
-<jsp:include page="/WEB-INF/view/template/nav.jsp" />
-
-<section id="home">
-
-			<!-- Section title -->
-			<h1 class="sr-only">TRAVEL DIARY</h1>
-
-<section id="skills">
-			
-			<div class="container">
-
-				<div class="row">
-					
-					<div class="col-md-6 col-md-offset-3">
-
-						<div class="title-content">
-							
-							<h2 class="section-title">TRAVEL LOG</h2>
-
-							<p>The happiest moment of my life</p>
-
-						</div> <!-- /.title-content -->
-
-					</div>
-
-				</div> <!-- /.row -->
-
-				<div class="row">
-					
-					<div class="col-md-8 col-md-offset-2">
-
-						<div class="skills-container">
-
-							<div class="container">
-	
-
-<div id="wrapper">
-	<jsp:include page="/WEB-INF/view/template/menu.jsp" />
-	<form:form modelAttribute="writeForm" enctype="multipart/form-data">
-		<div>
-			제목: <input type="text" id="title" name="title" placeholder="제목 명"
+<section class="container">
+    <h1 class="title">Travel Diary</h1>
+   
+    <form:form modelAttribute="writeForm" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <label for="title">Title:</label>
+                 <input type="text" id="title" name="title" placeholder="제목 명"
 						 value="${communityVO.title}" /> 
-		</div>	
-		<div id="errorTitle" style="display:none;">제목을 입력하세요!</div>
-		<div>
+            </li>
+            <div id="errorTitle" style="display:none;">제목을 입력하세요!</div>
+            <div>
 			<form:errors path="title" />
-		</div>
-		
-		<div>
-			카테고리: <textarea rows="10" cols="10" id="category" name="category" placeholder="카테고리">${communityVO.category}</textarea>
-		</div>
-		<div>
-			<form:errors path="category" />
-		</div>
-		<div>
-			장소: <textarea rows="10" cols="10" id="location" name="location" placeholder="장소">${communityVO.location}</textarea>
-		</div>
-		<div>
-			<form:errors path="location" />
-		</div>
-		<div>
-			교통: <textarea rows="10" cols="10" id="transportation" name="transportation" placeholder="교통">${communityVO.transportation}</textarea>
-		</div>
-		<div>
-			<form:errors path="transportation" />
-		</div>
-		<div>
-			경비: <textarea rows="10" cols="10" id="expense" name="expense" placeholder="경비">${communityVO.expense}</textarea>
-		</div>
-		<div>
-			<form:errors path="expense" />
-		</div>
-		<div>
-			숙소: <textarea rows="10" cols="10" id="accommodations" name="accommodations" placeholder="숙소">${communityVO.accommodations}</textarea>
-		</div>
-		<div>
-			<form:errors path="accommodations" />
-		</div>
-		<div>
-			준비물: <textarea rows="10" cols="10" id="luggage" name="luggage" placeholder="준비물">${communityVO.luggage}</textarea>
-		</div>
-		<div>
-			<form:errors path="luggage" />
-		</div>
-		<div>
-			여행경로: <textarea rows="10" cols="20" id="route" name="route" placeholder="여행경로">${communityVO.route}</textarea>
-		</div>
-		<div>
-			<form:errors path="route" />
-		</div>
-		
-		<div>
-			내용: <textarea rows="10" cols="30" id="body" name="body" placeholder="내용">${communityVO.body}</textarea>
-		</div>
-		<div>
-			<form:errors path="body" />
-		</div>
-		
-		
-		<c:if test="${mode == 'modify' &&
-						not empty communityVO.displayFilename}">
+			</div>	
+            <li>
+                <label for="email">Category:</label>
+            	<input id="category" name="category" placeholder="카테고리">${communityVO.category}</textarea>
+            <div>
+			 	<form:errors path="category" />
+		    </div>
+            </li>
+            <li>
+                <label for="location">Location:</label>
+            	<input id="location" name="location" placeholder="장소">${communityVO.location}</textarea>
+            </li>
+            <div>
+				<form:errors path="location" />
+			</div>
+            <li>
+                <label for="transportation">Transportation:</label>
+            	<input id="transportation" name="transportation" placeholder="교통">${communityVO.transportation}</textarea>		
+            </li>
+            <div>
+				<form:errors path="transportation" />
+			</div>
+            <li>
+                <label for="expense">Expense:</label>
+            	<input id="expense" name="expense" placeholder="경비">${communityVO.expense}</textarea>
+            </li>
+            <div>
+				<form:errors path="expense" />
+			</div>
+            <li>
+                <label for="accommodations">Accommodation:</label>
+                <input id="accommodations" name="accommodations" placeholder="숙소">${communityVO.accommodations}</textarea>
+			</li>
 			<div>
-				<input type="checkbox" 
+				<form:errors path="accommodations" />
+			</div>
+            <li>
+                <label for="luggage">CheckList:</label>
+                <textarea id="luggage" name="luggage" placeholder="준비물">${communityVO.luggage}</textarea>
+			</li>
+			<div>
+				<form:errors path="luggage" />
+			</div>
+			<li>
+                <label for="route">Route:</label>
+                <textarea id="route" name="route" placeholder="여행경로">${communityVO.route}</textarea>
+			</li>
+			<div>
+				<form:errors path="route" />
+			</div>
+			<li>
+                <label for="body">Text:</label>
+              	<textarea id="body" name="body" placeholder="내용">${communityVO.body}</textarea>		   
+            </li>
+            <div>
+				<form:errors path="body" />
+			</div>
+			
+    		<c:if test="${mode == 'modify' &&
+						not empty communityVO.displayFilename}">
+			
+			<li>
+               <input type="checkbox" 
 					   id = "displayFilename"
 					   name= "displayFilename"
 					   value="${communityVO.displayFilename}" />
 				<label for="displayFilename">
 					${communityVO.displayFilename}
 				</label>
-			</div>							
-		</c:if>
-		
-		
-		<div>
+			</li>			
+			</c:if>
+			
+			<div>
 			<input type="hidden" id="userId" name="userId" 
-			value="${sessionScope.__USER__.id}"
-			placeholder="사용자 ID">
+				value="${sessionScope.__USER__.id}"
+				placeholder="사용자 ID">
+			</div>
+			<div>
+				<form:errors path="writeDate" />
+			</div>
+			<div>
+				<input type="file" id="file" name="file"/>
+			</div>
+			
+		<div>
+     		<input type="button" value="등록" id="writeBtn"/>	
 		</div>
+			
+        </ul>
+       
 		
-
-		<div>
-			<form:errors path="writeDate" />
-		</div>
-		<div>
-			<input type="file" id="file" name="file"/>
-		</div>
-		<div>
-			등록버튼: <input type="button" id="writeBtn" value="등록">
-		</div>
-	</form:form>
-	</div>
-</div>
-
-</div>
-
-						</div> <!-- /.skills-container -->
-
-					</div>
-
-				</div> <!-- /.row -->
-
-			</div> <!-- /.container -->
+    
+    
+    </form:form>
 </section>
-</section>
+
 
 </body>
 </html>

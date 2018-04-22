@@ -13,8 +13,9 @@ background-color: #f1eded  ;
 .thumbnail{
 margin-bottom: 10px;
 }
-.thumbnail>img {
-height: auto;
+.thumbnail img {
+	width:100%;
+	height: auto
 }
 .date-of-post{
 color: #0089d8;
@@ -135,8 +136,10 @@ $().ready(function(){
           <div class="col-sm-6 col-md-6">
              <a href="#">
                 <div class="thumbnail principal-post">
-                   <img src="<c:url value="/get/${community.id}" />">
-            			${community.displayFilename}
+                	<div class="image-wrapper">
+	                	<img src="<c:url value="/get/${community.id}" />">
+	           			<span>${community.displayFilename}</span>
+                	</div>
                     <div class="caption">
                       <p>내용</p>
                       <h3>${community.body}</h3>

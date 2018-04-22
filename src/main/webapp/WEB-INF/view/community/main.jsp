@@ -39,7 +39,7 @@ height: 100%;
 	<header id="header">
 		
 		<!-- Section title -->
-		<h1 class="sr-only">Gonex | Home page</h1>
+		<h1 class="sr-only">Hyeseung's Page</h1>
 		
 		<nav id="main-navigation" class="navbar navbar-default navbar-fixed-top">
 		  <!-- Section title -->
@@ -189,9 +189,9 @@ height: 100%;
 						<div class="punchbox">
 							
 							<h2 class="punchline">
-								<span>What we do</span>
-								<span>best</span>
-								<span>see it for yourself</span>
+								<span>Travel</span>
+								<span>Best Top5</span>
+								<span>what's the best place to travel</span>
 							</h2>
 
 						</div> <!-- /.punchbox -->
@@ -215,12 +215,13 @@ height: 100%;
 						
 						<div class="service">
 
-							<h4>Graphic design</h4>
+							
+							<h4>${imageList[1].displayFilename}</h4>
 
-							<p>Nec feugiat ut neque odio quo, interdum, quis elit varius.</p>
-
-							<a href="#" class="service-link">See projects</a>
-
+							<p><img src="<c:url value="/get/${imageList[1].id}" />"></p>
+							
+							<a href="${imageList[1]}" class="service-link">See projects</a>
+						
 						</div> <!-- /.service -->
 
 					</div>
@@ -233,12 +234,27 @@ height: 100%;
 						
 						<div class="service">
 
-							<h4>App development</h4>
+							
+							<h4>${imageList[2].displayFilename}</h4>
 
-							<p>Nec feugiat ut neque odio quo, interdum, quis elit varius.</p>
+							<p><img src="<c:url value="/get/${imageList[2].id}" />"></p>
+							
+							<a href="${imageList[2]}" class="service-link">See projects</a>
+						
+						</div> <!-- /.service -->
 
-							<a href="#" class="service-link">See projects</a>
+					</div>
 
+					<div class="col-md-4">
+						
+						<div class="service">
+							
+							<h4>${imageList[3].displayFilename}</h4>
+
+							<p><img src="<c:url value="/get/${imageList[3].id}" />"></p>
+							
+							<a href="${imageList[3]}" class="service-link">See projects</a>
+						
 						</div> <!-- /.service -->
 
 					</div>
@@ -247,26 +263,12 @@ height: 100%;
 						
 						<div class="service">
 
-							<h4>Programming</h4>
+							<h4>${imageList[4].displayFilename}</h4>
 
-							<p>Nec feugiat ut neque odio quo, interdum, quis elit varius.</p>
-
-							<a href="#" class="service-link">See projects</a>
-
-						</div> <!-- /.service -->
-
-					</div>
-
-					<div class="col-md-4">
+							<p><img src="<c:url value="/get/${imageList[4].id}" />"></p>
+							
+							<a href="${imageList[4]}" class="service-link">See projects</a>
 						
-						<div class="service">
-
-							<h4>Web coding</h4>
-
-							<p>Nec feugiat ut neque odio quo, interdum, quis elit varius.</p>
-
-							<a href="#" class="service-link">See projects</a>
-
 						</div> <!-- /.service -->
 
 					</div>
